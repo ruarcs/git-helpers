@@ -1,0 +1,30 @@
+#
+
+require_git_repo
+
+usage() {
+	echo "usage: git update"
+}
+
+cmd_default() {
+	cmd_update
+}
+
+cmd_help() {
+	usage
+	exit 0
+}
+
+cmd_update() {
+	# flags
+	DEFINE_boolean prune true "delete local copies of branches that have been deleted from $ORIGIN" p
+
+	# make sure we're okay to start
+	require_clean_working_tree
+
+    # get current branch
+    get_current_branch
+
+	# drop any branches that have disappeared from origin
+		git pull --rebase $BRANCH || die "Unable to prune branches that no longer exist at '$ORIGIN'"
+}
