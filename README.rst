@@ -23,17 +23,16 @@ This simple set of shell scripts was designed to aid our workflow. We use Github
 
           ``rebase -i origin/$CURRENT_BRANCH``
     Using the ``-p`` argument will replace ``fetch`` with ``pull --rebase``.
-
-----------
-
+|
+|
 ``git update``
     Just an alias for:
 
         ``pull --rebase origin $CURRENT_BRANCH``
-    
-----------
-
+|
+|
 ``git incoming [<branch>]``
     List all commits that would be introduced from the remote if we did a ``fetch/pull``.
+    Defaults to current branch.
 
 
