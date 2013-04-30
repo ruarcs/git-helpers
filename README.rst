@@ -16,12 +16,17 @@ This simple set of shell scripts was designed to aid our workflow. We use Github
           ``fetch origin $BRANCH``
 
           ``rebase -i origin/$BRANCH``
+
+          If the branch is not on the remote then we tell the user this.
         * If no argument is given we will look to see if this branch is
           published on the remote. If it is we will do a:
 
           ``fetch origin $CURRENT_BRANCH``
 
           ``rebase -i origin/$CURRENT_BRANCH``
+
+          If the branch is not on the remote then we tell the user this
+          and ask that they explicitly provide a local branch.
     Using the ``-p`` argument will replace ``fetch`` with ``pull --rebase``.
 |
 |
